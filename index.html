@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Lesson examples</title>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+</head>
+<body>
+    <h1>Examples for GeeHub JS lessons</h1>
+
+    <div class="selectable">
+        <h2>Lesson 2</h2>
+        <input type="hidden" value="lesson2">
+        <select>
+            <option>-Select Example-</option>
+            <option value="data-types.js">Data Types</option>
+            <option value="calculations.js">Calculation</option>
+            <option value="type-casting.js">Type casting</option>
+            <option value="logical-operators.js">Operators</option>
+        </select>
+    </div>
+
+    <hr>
+
+    <div>
+        <h2>Lesson 3</h2>
+        <input type="hidden" value="lesson2">
+        <select>
+            <option>-Select Example-</option>
+        </select>
+    </div>
+</body>
+<script>
+    $(document).ready(function () {
+        $('.selectable').each(function() {
+            var container = $(this);
+            var path = container.find('input[type=hidden]').val();
+            container.find('select').on('change', function () {
+                var src = 'js/'+ path + '/' + $(this).find('option:selected').val();
+                $.getScript(src);
+            })
+        });
+    });
+</script>
+</html>

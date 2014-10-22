@@ -72,6 +72,16 @@ console.log(obj + ' test');
 
 //region ====================== 2.6.3 Способы обращения к полям объекта =================
 
+// 2.6.3.1 через точку
 
+console.log(obj1._);
+console.log(obj1.$);
+console.log(obj1.abc);
+
+// 2.6.3.2 через квадратные скобки
+
+console.log(obj1['@']);
+console.log(obj1['']);
+console.log(obj1['abc']);
 
 //endregion

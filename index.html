@@ -10,8 +10,7 @@
 
     <div class="selectable">
         <h2>Lesson 2</h2>
-        <input type="hidden" value="lesson2">
-        <select>
+        <select data-lesson="lesson2">
             <option>-Select Example-</option>
             <option value="data-types.js">Data Types</option>
             <option value="calculations.js">Calculation</option>
@@ -24,22 +23,20 @@
 
     <div>
         <h2>Lesson 3</h2>
-        <input type="hidden" value="lesson2">
-        <select>
+        <select data-lesson="lesson3">
             <option>-Select Example-</option>
         </select>
     </div>
-</body>
-<script>
-    $(document).ready(function () {
-        $('.selectable').each(function() {
-            var container = $(this);
-            var path = container.find('input[type=hidden]').val();
-            container.find('select').on('change', function () {
-                var src = 'js/'+ path + '/' + $(this).find('option:selected').val();
+
+    <script>
+        jQuery(function ($) {
+            $('select').change(function() {
+                var select = $(this),
+                    src = 'js/'+ select.data('lesson') + '/' + select.val();
+
                 $.getScript(src);
-            })
+            });
         });
-    });
-</script>
+    </script>
+</body>
 </html>

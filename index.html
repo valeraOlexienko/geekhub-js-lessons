@@ -8,44 +8,30 @@
     <h1>Examples for GeeHub JS lessons</h1>
 
     <div class="selectable">
-        <h2>Lesson 2</h2>
+        <h2>2. Основы</h2>
         <select data-lesson="lesson2">
             <option>-Select Example-</option>
             <option value="data-types.js">Data Types</option>
             <option value="calculations.js">Calculation</option>
             <option value="type-casting.js">Type casting</option>
             <option value="logical-operators.js">Operators</option>
+            <option value="2_6-objects.js">2.6 Объекты</option>
+            <option value="2_7-all-data-are-objects.js">2.7 Все данные - объекты</option>
         </select>
     </div>
 
     <hr>
 
     <div>
-        <h2>Lesson 3</h2>
+        <h2>3. Функции</h2>
         <select data-lesson="lesson3">
             <option>-Select Example-</option>
+            <option value="3_6-this-detailed.js">3.6 Детальное расмотрение this</option>
+            <option value="3_7-scope.js">3.7 Скоуп переменных</option>
+            <option value="3_8-closure.js">3.8 Замыкание переменных</option>
         </select>
     </div>
 
-    <script>
-        (function () {
-            var selects = document.querySelectorAll('select');
-
-            for (var i = 0; i < selects.length; i++) {
-                selects[i].addEventListener('change', changeLocation);
-            }
-
-            if (location.hash) {
-                var script = document.createElement('script');
-                script.src = 'js/' + location.hash.slice(1);
-                document.body.appendChild(script);
-            }
-
-            function changeLocation() {
-                location.hash = this.getAttribute('data-lesson') + '/' + this.value;
-                location.reload();
-            }
-        })();
-    </script>
+    <script src="js/index.js"></script>
 </body>
 </html>

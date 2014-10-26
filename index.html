@@ -31,11 +31,13 @@
     <script>
         jQuery(function ($) {
             $('select').change(function() {
-                var select = $(this),
-                    src = 'js/'+ select.data('lesson') + '/' + select.val();
-
-                $.getScript(src);
+                location.hash = this.getAttribute('data-lesson') + '/' + this.value;
+                location.reload();
             });
+
+            if (location.hash) {
+                $.getScript('js/' + location.hash.slice(1));
+            }
         });
     </script>
 </body>

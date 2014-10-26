@@ -3,7 +3,6 @@
 <head lang="en">
     <meta charset="UTF-8">
     <title>Lesson examples</title>
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 </head>
 <body>
     <h1>Examples for GeeHub JS lessons</h1>
@@ -29,16 +28,24 @@
     </div>
 
     <script>
-        jQuery(function ($) {
-            $('select').change(function() {
-                location.hash = this.getAttribute('data-lesson') + '/' + this.value;
-                location.reload();
-            });
+        (function () {
+            var selects = document.querySelectorAll('select');
+
+            for (var i = 0; i < selects.length; i++) {
+                selects[i].addEventListener('change', changeLocation);
+            }
 
             if (location.hash) {
-                $.getScript('js/' + location.hash.slice(1));
+                var script = document.createElement('script');
+                script.src = 'js/' + location.hash.slice(1);
+                document.body.appendChild(script);
             }
-        });
+
+            function changeLocation() {
+                location.hash = this.getAttribute('data-lesson') + '/' + this.value;
+                location.reload();
+            }
+        })();
     </script>
 </body>
 </html>

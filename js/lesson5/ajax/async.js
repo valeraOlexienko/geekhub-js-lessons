@@ -14,7 +14,7 @@
 
 
     function asyncAjax(url, callback) {
-        var response = $.ajax({
+        jQuery.ajax({
             type: "GET",
             url: 'http://localhost:3000' + url,
             success: callback

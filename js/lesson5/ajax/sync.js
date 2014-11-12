@@ -11,7 +11,7 @@ setTimeout(function () {
 
 
     function syncAjax(url) {
-        var response = $.ajax({
+        var response = jQuery.ajax({
             type: "GET",
             url: 'http://localhost:3000' + url,
             async: false
